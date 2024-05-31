@@ -1,18 +1,18 @@
-import subprocess
+import subprocess    # Module permettant l'exécution de programmes externes en python
 
-class Update:
+class Update:    # Définition de la classe Update qui donne les caractéristiques de notre opération
     
-    def __init__(self, Uninstall_file_path_from_the_old_version = None, Path_to_the_new_version_installation_file = None):
+    def __init__(self, Uninstall_file_path_from_the_old_version = None, Path_to_the_new_version_installation_file = None):    # Attributs de l'objet qui sera créé et qui va prendre certains chemins
         
         self.Uninstall_file_path_from_the_old_version = Uninstall_file_path_from_the_old_version
         
         self.Path_to_the_new_version_installation_file = Path_to_the_new_version_installation_file
     
-    def update(self):
+    def update(self):    # Méthode pour la mise à jour
         
         try:
             
-            subprocess.run(self.Uninstall_file_path_from_the_old_version)
+            subprocess.run(self.Uninstall_file_path_from_the_old_version)    # Exécution du fichier de désinstallation
         
         except:
             
@@ -20,8 +20,8 @@ class Update:
         
         finally:
             
-            subprocess.run(self.Path_to_the_new_version_installation_file)
+            subprocess.run(self.Path_to_the_new_version_installation_file)    # Exécution du fichier de d'installation même en cas d'erreurs
 
-obj = Update("C:\\Program Files (x86)\\Close the Window J\\unins000.exe", "close_setup.exe")
+obj = Update()
 
 obj.update()
